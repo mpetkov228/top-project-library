@@ -1,7 +1,3 @@
-const tbody = document.querySelector('tbody');
-const form = document.querySelector('form');
-const newBookBtn = document.querySelector('.newBookBtn');
-
 let myLibrary = [
     new Book('War and Peace', 'Leo Tolstoy', 1225, false),
     new Book('1984', 'George Orwell', 328, true),
@@ -18,6 +14,15 @@ function Book(title, author, pages, read) {
         return `${title} by ${author}, ${pages} pages, ${read ? 'read.' : 'not read yet.'}`;
     }
 }
+
+const tbody = document.querySelector('tbody');
+const form = document.querySelector('form');
+const newBookBtn = document.querySelector('.newBookBtn');
+
+newBookBtn.addEventListener('click', () => {
+    newBookBtn.style.display = 'none';
+    form.style.display = 'block';
+});
 
 function addBookToLibrary(book) {
     myLibrary.push(book);

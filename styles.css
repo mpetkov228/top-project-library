@@ -26,4 +26,5 @@ th, td {
 form {
     width: 400px;
     margin: 40px auto;
+    display: none;
 }
