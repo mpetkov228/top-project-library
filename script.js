@@ -20,9 +20,29 @@ const form = document.querySelector('form');
 const newBookBtn = document.querySelector('.newBookBtn');
 
 newBookBtn.addEventListener('click', () => {
-    newBookBtn.style.display = 'none';
-    form.style.display = 'block';
+    toggleNewBookBtn();
+    toggleForm();
 });
+
+function toggleNewBookBtn() {
+    const currentDisplay = newBookBtn.style.display;
+
+    if (currentDisplay == 'none') {
+        newBookBtn.style.display = 'block';
+    } else {
+        newBookBtn.style.display = 'none';
+    }
+}
+
+function toggleForm() {
+    const currentDisplay = form.style.display;
+    
+    if (currentDisplay == 'block') {
+        form.style.display = 'none';
+    } else {
+        form.style.display = 'block';
+    }
+}
 
 function addBookToLibrary(book) {
     myLibrary.push(book);
