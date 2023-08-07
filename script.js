@@ -1,4 +1,4 @@
-const table = document.querySelector('table');
+const tbody = document.querySelector('tbody');
 
 let myLibrary = [
     new Book('War and Peace', 'Leo Tolstoy', 1225, false),
@@ -19,6 +19,7 @@ function Book(title, author, pages, read) {
 
 function addBookToLibrary(book) {
     myLibrary.push(book);
+    updateTable();
 }
 
 function createTableRow(book) {
@@ -43,7 +44,13 @@ function createTableRow(book) {
     return tr;
 }
 
-for (let book of myLibrary) {
-    const tr = createTableRow(book);
-    table.appendChild(tr);
+function updateTable() {
+    tbody.replaceChildren();
+    
+    for (let book of myLibrary) {
+        const tr = createTableRow(book);
+        tbody.appendChild(tr);
+    }
 }
+
+updateTable();
