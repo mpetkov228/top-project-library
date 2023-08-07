@@ -1,3 +1,5 @@
+const table = document.querySelector('table');
+
 let myLibrary = [
     new Book('War and Peace', 'Leo Tolstoy', 1225, false),
     new Book('1984', 'George Orwell', 328, true),
@@ -39,4 +41,9 @@ function createTableRow(book) {
     tr.appendChild(tdRead);
 
     return tr;
+}
+
+for (let book of myLibrary) {
+    const tr = createTableRow(book);
+    table.appendChild(tr);
 }
