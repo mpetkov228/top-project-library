@@ -23,6 +23,37 @@
         </thead>
         <tbody></tbody>
     </table>
+
+    <button class="newBookBtn">NEW BOOK</button>
+
+    <form>
+        <div>
+            <label for="title">Title</label>
+            <input type="text" id="title" name="title">
+        </div>
+        <div>
+            <label for="author">Author</label>
+            <input type="text" id="author" name="author">
+        </div>
+        <div>
+            <label for="pages">Pages</label>
+            <input type="number" id="pages" name="pages">
+        </div>
+        <fieldset>
+            <legend>Have you read the book?</legend>
+            <div>
+                <label for="true">True</label>
+                <input type="radio" id="true" name="read" value="true">
+            </div>
+            <div>
+                <label for="false">False</label>
+                <input type="radio" id="false" name="read" value="false">
+            </div>
+        </fieldset>
+        <div>
+            <button>Add Book</button>
+        </div>
+    </form>
 </body>
 
 </html>

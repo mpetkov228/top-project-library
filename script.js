@@ -1,4 +1,6 @@
 const tbody = document.querySelector('tbody');
+const form = document.querySelector('form');
+const newBookBtn = document.querySelector('.newBookBtn');
 
 let myLibrary = [
     new Book('War and Peace', 'Leo Tolstoy', 1225, false),
