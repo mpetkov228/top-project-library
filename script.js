@@ -16,10 +16,37 @@ function Book(title, author, pages, read) {
 }
 
 const tbody = document.querySelector('tbody');
+const titleInput = document.getElementById('title');
+const authorInput = document.getElementById('author');
+const pagesInput = document.getElementById('pages');
+const readTrueInput = document.getElementById('true');
+const readFalseInput = document.getElementById('false');
+
 const form = document.querySelector('form');
 const newBookBtn = document.querySelector('.newBookBtn');
 
 newBookBtn.addEventListener('click', () => {
+    toggleNewBookBtn();
+    toggleForm();
+});
+
+form.addEventListener('submit', (event) => {
+    event.preventDefault();
+
+    const title = titleInput.value;
+    const author = authorInput.value;
+    const pages = pagesInput.value;
+    let read;
+    
+    if (readTrueInput.checked) {
+        read = true;
+    } else if (readFalseInput.checked) {
+        read = false;
+    }
+    
+    const book = new Book(title, author, pages, read);
+
+    addBookToLibrary(book);
     toggleNewBookBtn();
     toggleForm();
 });
