@@ -18,3 +18,25 @@ function Book(title, author, pages, read) {
 function addBookToLibrary(book) {
     myLibrary.push(book);
 }
+
+function createTableRow(book) {
+    const tr = document.createElement('tr');
+    
+    const tdTitle = document.createElement('td');
+    tdTitle.textContent = book.title;
+    tr.appendChild(tdTitle);
+
+    const tdAuthor = document.createElement('td');
+    tdAuthor.textContent = book.author;
+    tr.appendChild(tdAuthor);
+
+    const tdPages = document.createElement('td');
+    tdPages.textContent = book.pages;
+    tr.appendChild(tdPages);
+
+    const tdRead = document.createElement('td');
+    tdRead.textContent = book.read;
+    tr.appendChild(tdRead);
+
+    return tr;
+}
