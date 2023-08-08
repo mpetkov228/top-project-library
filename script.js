@@ -31,6 +31,15 @@ newBookBtn.addEventListener('click', () => {
 });
 
 form.addEventListener('submit', onSubmit);
+tbody.addEventListener('click', (event) => {
+    if (event.target.tagName != 'BUTTON') {
+        return;
+    }
+
+    const tr = event.target.parentElement.parentElement;
+    const index = tr.getAttribute('data-index');
+    removeBook(index);
+});
 
 function onSubmit(event) {
     event.preventDefault();
@@ -78,6 +87,11 @@ function addBookToLibrary(book) {
     updateTable();
 }
 
+function removeBook(index) {
+    myLibrary.splice(index, 1);
+    updateTable();
+}
+
 function createTableRow(book) {
     const tr = document.createElement('tr');
     
@@ -96,6 +110,12 @@ function createTableRow(book) {
     const tdRead = document.createElement('td');
     tdRead.textContent = book.read;
     tr.appendChild(tdRead);
+
+    const tdRemove = document.createElement('td');
+    const removeBtn = document.createElement('button');
+    removeBtn.textContent = 'X';
+    tdRemove.appendChild(removeBtn);
+    tr.appendChild(tdRemove);
 
     return tr;
 }
