@@ -30,7 +30,9 @@ newBookBtn.addEventListener('click', () => {
     toggleForm();
 });
 
-form.addEventListener('submit', (event) => {
+form.addEventListener('submit', onSubmit);
+
+function onSubmit(event) {
     event.preventDefault();
 
     const title = titleInput.value;
@@ -49,7 +51,7 @@ form.addEventListener('submit', (event) => {
     addBookToLibrary(book);
     toggleNewBookBtn();
     toggleForm();
-});
+}
 
 function toggleNewBookBtn() {
     const currentDisplay = newBookBtn.style.display;
