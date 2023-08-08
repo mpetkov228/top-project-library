@@ -28,3 +28,7 @@ form {
     margin: 40px auto;
     display: none;
 }
+
+.editBtn {
+    margin-left: 5px;
+}

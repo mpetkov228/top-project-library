@@ -9,10 +9,14 @@ function Book(title, author, pages, read) {
     this.author = author;
     this.pages = pages;
     this.read = read;
+}
 
-    this.info = function () {
-        return `${title} by ${author}, ${pages} pages, ${read ? 'read.' : 'not read yet.'}`;
-    }
+Book.prototype.info = function () {
+    return `${this.title} by ${this.author}, ${this.pages} pages, ${this.read ? 'read.' : 'not read yet.'}`;
+};
+
+Book.prototype.toggleRead = function () {
+    this.read = !this.read;
 }
 
 const tbody = document.querySelector('tbody');
@@ -32,13 +36,22 @@ newBookBtn.addEventListener('click', () => {
 
 form.addEventListener('submit', onSubmit);
 tbody.addEventListener('click', (event) => {
-    if (event.target.tagName != 'BUTTON') {
+    if (event.target.className != 'removeBtn') {
         return;
     }
 
     const tr = event.target.parentElement.parentElement;
     const index = tr.getAttribute('data-index');
     removeBook(index);
+});
+tbody.addEventListener('click', (event) => {
+    if (event.target.className != 'editBtn') {
+        return;
+    }
+
+    const tr = event.target.parentElement.parentElement;
+    const index = tr.getAttribute('data-index');
+    editBookRead(index);
 });
 
 function onSubmit(event) {
@@ -92,6 +105,11 @@ function removeBook(index) {
     updateTable();
 }
 
+function editBookRead(index) {
+    myLibrary[index].toggleRead();
+    updateTable();
+}
+
 function createTableRow(book) {
     const tr = document.createElement('tr');
     
@@ -108,12 +126,17 @@ function createTableRow(book) {
     tr.appendChild(tdPages);
 
     const tdRead = document.createElement('td');
-    tdRead.textContent = book.read;
+    const editBtn = document.createElement('button');
+    editBtn.textContent = 'Edit';
+    editBtn.className = 'editBtn';
+    tdRead.textContent = book.read ? 'Yes' : 'No';
+    tdRead.appendChild(editBtn);
     tr.appendChild(tdRead);
 
     const tdRemove = document.createElement('td');
     const removeBtn = document.createElement('button');
     removeBtn.textContent = 'X';
+    removeBtn.className = 'removeBtn';
     tdRemove.appendChild(removeBtn);
     tr.appendChild(tdRemove);
 
