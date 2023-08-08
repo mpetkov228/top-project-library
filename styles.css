@@ -65,6 +65,11 @@ form > div > label {
     display: inline-block;
 }
 
+form fieldset {
+    margin-top: 20px;
+    margin-bottom: 15px;
+}
+
 form button {
     font-weight: bold;
     padding: 5px 10px;
