@@ -80,6 +80,8 @@ function onSubmit(event) {
     
     const book = new Book(title, author, pages, read);
 
+    event.target.reset();
+
     addBookToLibrary(book);
     toggleNewBookBtn();
     toggleForm();
