@@ -4,29 +4,70 @@ h1 {
 
 table {
     margin: 0 auto;
+    padding: 10px;
     font-size: 26px;
+    border-collapse: collapse;
 }
 
-table, tr {
-    border: 1px solid black;
-
+table, th, td {
+    border: 1px solid
 }
+
 
 th, td {
     padding-left: 10px;
     padding-right: 10px;
+    text-align: center;
+}
+
+td button {
+    position: relative;
+    bottom: 3px;
+    font-weight: bold;
+}
+
+
+td span {
+    display: inline-block;
+    width: 40px;
 }
 
 .newBookBtn {
     width: 100px;
     margin: 40px auto;
+    padding: 5px 10px;
     display: block;
+    font-weight: bold;
+}
+
+.container {
+    display: none;
 }
 
 form {
     width: 400px;
     margin: 40px auto;
-    display: none;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    border: 1px solid black;
+}
+
+h2 {
+    margin-top: 0px;
+}
+
+form > div > label {
+    width: 50px;
+    display: inline-block;
+}
+
+form button {
+    font-weight: bold;
+    padding: 5px 10px;
 }
 
 .editBtn {

@@ -26,6 +26,7 @@ const pagesInput = document.getElementById('pages');
 const readTrueInput = document.getElementById('true');
 const readFalseInput = document.getElementById('false');
 
+const container = document.querySelector('.container');
 const form = document.querySelector('form');
 const newBookBtn = document.querySelector('.newBookBtn');
 
@@ -35,6 +36,15 @@ newBookBtn.addEventListener('click', () => {
 });
 
 form.addEventListener('submit', onSubmit);
+form.addEventListener('click', (event) => {
+    if (event.target.className != 'backBtn') {
+        return;
+    }
+
+    toggleForm();
+    toggleNewBookBtn();
+});
+
 tbody.addEventListener('click', (event) => {
     if (event.target.className != 'removeBtn') {
         return;
@@ -86,12 +96,12 @@ function toggleNewBookBtn() {
 }
 
 function toggleForm() {
-    const currentDisplay = form.style.display;
+    const currentDisplay = container.style.display;
     
     if (currentDisplay == 'block') {
-        form.style.display = 'none';
+        container.style.display = 'none';
     } else {
-        form.style.display = 'block';
+        container.style.display = 'block';
     }
 }
 
@@ -126,10 +136,12 @@ function createTableRow(book) {
     tr.appendChild(tdPages);
 
     const tdRead = document.createElement('td');
+    const span = document.createElement('span');
     const editBtn = document.createElement('button');
     editBtn.textContent = 'Edit';
     editBtn.className = 'editBtn';
-    tdRead.textContent = book.read ? 'Yes' : 'No';
+    span.textContent = book.read ? 'Yes' : 'No';
+    tdRead.appendChild(span);
     tdRead.appendChild(editBtn);
     tr.appendChild(tdRead);
 
