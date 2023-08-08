@@ -102,11 +102,13 @@ function createTableRow(book) {
 
 function updateTable() {
     tbody.replaceChildren();
-    
-    for (let book of myLibrary) {
-        const tr = createTableRow(book);
+
+    for (let i = 0; i < myLibrary.length; i++) {
+        const tr = createTableRow(myLibrary[i]);
+        tr.setAttribute('data-index', i);
         tbody.appendChild(tr);
     }
+    
 }
 
 updateTable();
