@@ -5,13 +5,25 @@
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-header {
+body {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+header, footer {
     background-color: antiquewhite;
     padding: 20px;
 }
 
 h1 {
     text-align: center;
+}
+
+main {
+    background-color: rgb(255, 249, 242);
+    padding: 40px;
+    flex: 1;
 }
 
 table {
@@ -92,4 +104,8 @@ form button {
 
 .editBtn {
     margin-left: 5px;
+}
+
+footer {
+    text-align: center;
 }
