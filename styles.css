@@ -36,7 +36,7 @@ table {
 table,
 th,
 td {
-    border: 1px solid
+    border: 1px solid;
 }
 
 
@@ -81,6 +81,7 @@ form {
     align-items: center;
     gap: 15px;
     border: 1px solid black;
+    border-radius: 5px;
 }
 
 h2 {
@@ -92,9 +93,18 @@ form>div>label {
     display: inline-block;
 }
 
+input[type="text"],
+input[type="number"] {
+    padding: 2px;
+}
+
 form fieldset {
     margin-top: 20px;
     margin-bottom: 15px;
+    padding: 10px;
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-evenly;
 }
 
 form button {
