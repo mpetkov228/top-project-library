@@ -1,23 +1,26 @@
+class Book {
+
+    constructor(title, author, pages, read) {
+        this.title = title;
+        this.author = author;
+        this.pages = pages;
+        this.read = read;
+    }
+
+    info = () => {
+        return `${this.title} by ${this.author}, ${this.pages} pages, ${this.read ? 'read.' : 'not read yet.'}`;
+    }
+
+    toggleRead = () => {
+        this.read = !this.read;
+    }
+}
+
 let myLibrary = [
     new Book('War and Peace', 'Leo Tolstoy', 1225, false),
     new Book('1984', 'George Orwell', 328, true),
     new Book('Of Mice and Men', 'John Steinbeck', 107, false)
 ];
-
-function Book(title, author, pages, read) {
-    this.title = title;
-    this.author = author;
-    this.pages = pages;
-    this.read = read;
-}
-
-Book.prototype.info = function () {
-    return `${this.title} by ${this.author}, ${this.pages} pages, ${this.read ? 'read.' : 'not read yet.'}`;
-};
-
-Book.prototype.toggleRead = function () {
-    this.read = !this.read;
-}
 
 const tbody = document.querySelector('tbody');
 const titleInput = document.getElementById('title');
