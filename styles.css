@@ -99,9 +99,25 @@ td span {
     background-color: green;
 }
 
+.card .read-btn:hover {
+    background-color: rgb(0, 119, 0);
+}
+
 .card .not-read-btn {
     color: white;
     background-color: rgb(255, 52, 52);
+}
+
+.card .not-read-btn:hover {
+    background-color: rgb(206, 41, 41);
+}
+
+.card .remove-btn {
+    border: 1px solid black;
+}
+
+.card .remove-btn:hover {
+    background-color: rgb(207, 207, 207);
 }
 
 .newBookBtn {
