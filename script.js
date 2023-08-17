@@ -22,13 +22,11 @@ let myLibrary = [
     new Book('Of Mice and Men', 'John Steinbeck', 107, false)
 ];
 
-const tbody = document.querySelector('tbody');
 const titleInput = document.getElementById('title');
 const authorInput = document.getElementById('author');
 const pagesInput = document.getElementById('pages');
 const readTrueInput = document.getElementById('true');
 const readFalseInput = document.getElementById('false');
-
 const cards = document.querySelector('.cards');
 
 const container = document.querySelector('.container');
@@ -50,22 +48,22 @@ form.addEventListener('click', (event) => {
     toggleNewBookBtn();
 });
 
-tbody.addEventListener('click', (event) => {
-    if (event.target.className != 'removeBtn') {
+cards.addEventListener('click', (event) => {
+    if (event.target.className != 'remove-btn') {
         return;
     }
 
-    const tr = event.target.parentElement.parentElement;
-    const index = tr.getAttribute('data-index');
+    const card = event.target.parentElement;
+    const index = card.getAttribute('data-index');
     removeBook(index);
 });
-tbody.addEventListener('click', (event) => {
-    if (event.target.className != 'editBtn') {
+cards.addEventListener('click', (event) => {
+    if (event.target.className != 'read-btn' && event.target.className != 'not-read-btn') {
         return;
     }
 
-    const tr = event.target.parentElement.parentElement;
-    const index = tr.getAttribute('data-index');
+    const card = event.target.parentElement;
+    const index = card.getAttribute('data-index');
     editBookRead(index);
 });
 
@@ -127,53 +125,12 @@ function editBookRead(index) {
     updateTable();
 }
 
-function createTableRow(book) {
-    const tr = document.createElement('tr');
-    
-    const tdTitle = document.createElement('td');
-    tdTitle.textContent = book.title;
-    tr.appendChild(tdTitle);
-
-    const tdAuthor = document.createElement('td');
-    tdAuthor.textContent = book.author;
-    tr.appendChild(tdAuthor);
-
-    const tdPages = document.createElement('td');
-    tdPages.textContent = book.pages;
-    tr.appendChild(tdPages);
-
-    const tdRead = document.createElement('td');
-    const span = document.createElement('span');
-    const editBtn = document.createElement('button');
-    editBtn.textContent = 'Edit';
-    editBtn.className = 'editBtn';
-    span.textContent = book.read ? 'Yes' : 'No';
-    tdRead.appendChild(span);
-    tdRead.appendChild(editBtn);
-    tr.appendChild(tdRead);
-
-    const tdRemove = document.createElement('td');
-    const removeBtn = document.createElement('button');
-    removeBtn.textContent = 'X';
-    removeBtn.className = 'removeBtn';
-    tdRemove.appendChild(removeBtn);
-    tr.appendChild(tdRemove);
-
-    return tr;
-}
-
 function updateTable() {
-    tbody.replaceChildren();
-
-    for (let i = 0; i < myLibrary.length; i++) {
-        const tr = createTableRow(myLibrary[i]);
-        tr.setAttribute('data-index', i);
-        tbody.appendChild(tr);
-    }
+    cards.replaceChildren();
 
     for (let i = 0; i < myLibrary.length; i++) {
         const card = createCard(myLibrary[i]);
-        // tr.setAttribute('data-index', i);
+        card.setAttribute('data-index', i);
         cards.appendChild(card);
     }
     
@@ -189,7 +146,7 @@ function createCard(book) {
     const readBtnClass = book.read ? 'read-btn' : 'not-read-btn';
     const readBtn = createElement('button', readBtnContent, readBtnClass);
 
-    const removeBtn = createElement('button', 'Remove');
+    const removeBtn = createElement('button', 'Remove', 'remove-btn');
 
     div.appendChild(title);
     div.appendChild(author);

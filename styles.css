@@ -91,6 +91,7 @@ td span {
     border: none;
     font-weight: bold;
     border-radius: 5px;
+    cursor: pointer;
 }
 
 .card .read-btn {
