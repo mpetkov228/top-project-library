@@ -29,6 +29,8 @@ const pagesInput = document.getElementById('pages');
 const readTrueInput = document.getElementById('true');
 const readFalseInput = document.getElementById('false');
 
+const cards = document.querySelector('.cards');
+
 const container = document.querySelector('.container');
 const form = document.querySelector('form');
 const newBookBtn = document.querySelector('.newBookBtn');
@@ -168,19 +170,43 @@ function updateTable() {
         tr.setAttribute('data-index', i);
         tbody.appendChild(tr);
     }
+
+    for (let i = 0; i < myLibrary.length; i++) {
+        const card = createCard(myLibrary[i]);
+        // tr.setAttribute('data-index', i);
+        cards.appendChild(card);
+    }
     
 }
 
 function createCard(book) {
-    const div = document.createElement('div');
-    div.classList.add()
+    const div = createElement('div', '', 'card');
+    const title = createElement('p', book.title);
+    const author = createElement('p', book.author);
+    const pages = createElement('p', `${book.pages} pages`);
+
+    const readBtnContent = book.read ? 'Read' : 'Not read';
+    const readBtnClass = book.read ? 'read-btn' : 'not-read-btn';
+    const readBtn = createElement('button', readBtnContent, readBtnClass);
+
+    const removeBtn = createElement('button', 'Remove');
+
+    div.appendChild(title);
+    div.appendChild(author);
+    div.appendChild(pages);
+    div.appendChild(readBtn);
+    div.appendChild(removeBtn);
+
+    return div;
 }
 
 function createElement(type, content, cssClass) {
     const element = document.createElement(type);
     element.textContent = content;
-    element.className = cssClass;
-    
+    if (cssClass) {
+        element.className = cssClass;
+    }
+
     return element;
 }
 
