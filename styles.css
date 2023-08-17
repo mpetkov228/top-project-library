@@ -62,7 +62,7 @@ td span {
 
 .cards {
     display: grid;
-    grid-template-columns: repeat(4, 300px);
+    grid-template-columns: repeat(4, 1fr);
     grid-auto-rows: auto;
     gap: 20px;
     margin: 20px auto;
@@ -71,9 +71,9 @@ td span {
 .card {
     display: flex;
     flex-direction: column;
-    gap: 5px;
+    gap: 10px;
     border: none;
-    padding: 10px;
+    padding: 15px;
     border-radius: 5px;
     background-color: antiquewhite;
     box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.507);

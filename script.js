@@ -171,4 +171,17 @@ function updateTable() {
     
 }
 
+function createCard(book) {
+    const div = document.createElement('div');
+    div.classList.add()
+}
+
+function createElement(type, content, cssClass) {
+    const element = document.createElement(type);
+    element.textContent = content;
+    element.className = cssClass;
+    
+    return element;
+}
+
 updateTable();
