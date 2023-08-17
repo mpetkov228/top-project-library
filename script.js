@@ -102,10 +102,10 @@ function toggleNewBookBtn() {
 function toggleForm() {
     const currentDisplay = container.style.display;
     
-    if (currentDisplay == 'block') {
+    if (currentDisplay == 'flex') {
         container.style.display = 'none';
     } else {
-        container.style.display = 'block';
+        container.style.display = 'flex';
     }
 }
 
